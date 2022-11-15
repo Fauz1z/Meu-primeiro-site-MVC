@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Registro";
+}
+
+@model User
+
+<h1>Registre-se abaixo</h1>
+
+
+<form asp-action="create" asp-controller="UserController" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name">Nome</label>
+        <input type="text" class="form-control" placeholder="seu nome aqui">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email address</label>
+        <input type="text" class="form-control" placeholder="name@exemplo.com">
+    </div>
+
+    <div class="form-group">
+
+        <div class="custom-file">
+            <script src="ImagePreview.js"></script>
+            <label class="custom-file-label" for="customImage">Enviar foto</label>
+            <input asp-for="Photo" render="server" type="file" accept="image/*" onchange="loadFile(event)">
+            <img src="outuput" id="output"/>
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="form-check">
+            <input value="m" asp-for="Gender" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Masculino
+            </label>
+        </div>
+        <div class="form-check">
+
+
+            <input value="f" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                Feminino
+            </label>
+
+
+        </div>
+    
+    </div>
+
+    <div class="form-group">
+
+        <label class="input-group">Data de nascimento</label>
+        <input class="input-group" type="date">
+        
+    </div>
+    
+    <div class=form-group>
+            <label for="exampleColorInput" class="form-label">Sua cor favorita:</label>
+            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#000000" title="Escolha sua cor">   
+    </div>
+
+    <div class="form-group">
+        <input asp-controller="UserController" asp-action="Create" type="submit" value="Save" class="btn btn-primary" />
+    </div>
+
+
+    
+
+
+
+    
+</form>
+
+
+
+
+
+
